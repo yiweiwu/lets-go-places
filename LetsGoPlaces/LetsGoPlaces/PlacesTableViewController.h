@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PlacesTableViewController.h
 //  LetsGoPlaces
 //
 //  Created by Yi-Wei on 7/23/15.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchPlaceViewController : UITableViewController
+@interface PlacesTableViewController : UITableViewController
 
+@property(nonatomic, strong) NSArray *places;
 
 @end
-

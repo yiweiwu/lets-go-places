@@ -13,6 +13,7 @@
 		EAA3FE411B61EC970020CA5B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAA3FE401B61EC970020CA5B /* Images.xcassets */; };
 		EAA3FE441B61EC970020CA5B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA3FE421B61EC970020CA5B /* LaunchScreen.xib */; };
 		EAA3FE501B61EC970020CA5B /* LetsGoPlacesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA3FE4F1B61EC970020CA5B /* LetsGoPlacesTests.m */; };
+		EAAED3FA1B62126E005FB540 /* PlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAED3F91B62126E005FB540 /* PlacesTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		EAA3FE491B61EC970020CA5B /* LetsGoPlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetsGoPlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAA3FE4E1B61EC970020CA5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAA3FE4F1B61EC970020CA5B /* LetsGoPlacesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LetsGoPlacesTests.m; sourceTree = "<group>"; };
+		EAAED3F81B62126E005FB540 /* PlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesTableViewController.h; sourceTree = "<group>"; };
+		EAAED3F91B62126E005FB540 /* PlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 				EAA3FE381B61EC970020CA5B /* AppDelegate.m */,
 				EAA3FE3A1B61EC970020CA5B /* SearchPlaceViewController.h */,
 				EAA3FE3B1B61EC970020CA5B /* SearchPlaceViewController.m */,
+				EAAED3F81B62126E005FB540 /* PlacesTableViewController.h */,
+				EAAED3F91B62126E005FB540 /* PlacesTableViewController.m */,
 				EAA3FE401B61EC970020CA5B /* Images.xcassets */,
 				EAA3FE421B61EC970020CA5B /* LaunchScreen.xib */,
 				EAA3FE331B61EC970020CA5B /* Supporting Files */,
@@ -216,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAA3FE3C1B61EC970020CA5B /* SearchPlaceViewController.m in Sources */,
+				EAAED3FA1B62126E005FB540 /* PlacesTableViewController.m in Sources */,
 				EAA3FE391B61EC970020CA5B /* AppDelegate.m in Sources */,
 				EAA3FE361B61EC970020CA5B /* main.m in Sources */,
 			);
@@ -404,6 +410,7 @@
 				EAA3FE551B61EC970020CA5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EAA3FE561B61EC970020CA5B /* Build configuration list for PBXNativeTarget "LetsGoPlacesTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +419,7 @@
 				EAA3FE581B61EC970020CA5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
