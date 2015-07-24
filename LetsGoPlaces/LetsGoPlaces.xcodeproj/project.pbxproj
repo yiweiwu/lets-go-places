@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3B6C3DABB21791063208EB9 /* libPods-LetsGoPlaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 974E1F13467F70999C25DC21 /* libPods-LetsGoPlaces.a */; };
 		EAA3FE361B61EC970020CA5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA3FE351B61EC970020CA5B /* main.m */; };
 		EAA3FE391B61EC970020CA5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA3FE381B61EC970020CA5B /* AppDelegate.m */; };
 		EAA3FE3C1B61EC970020CA5B /* SearchPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA3FE3B1B61EC970020CA5B /* SearchPlaceViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3AB4141FC338D4DC5399486A /* Pods-LetsGoPlaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsGoPlaces.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsGoPlaces/Pods-LetsGoPlaces.release.xcconfig"; sourceTree = "<group>"; };
+		974E1F13467F70999C25DC21 /* libPods-LetsGoPlaces.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LetsGoPlaces.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAA3FE301B61EC970020CA5B /* LetsGoPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsGoPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAA3FE341B61EC970020CA5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAA3FE351B61EC970020CA5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -41,6 +44,7 @@
 		EAA3FE4F1B61EC970020CA5B /* LetsGoPlacesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LetsGoPlacesTests.m; sourceTree = "<group>"; };
 		EAAED3F81B62126E005FB540 /* PlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesTableViewController.h; sourceTree = "<group>"; };
 		EAAED3F91B62126E005FB540 /* PlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesTableViewController.m; sourceTree = "<group>"; };
+		FE49F65A30CD0B734BEDED01 /* Pods-LetsGoPlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsGoPlaces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsGoPlaces/Pods-LetsGoPlaces.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3B6C3DABB21791063208EB9 /* libPods-LetsGoPlaces.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,12 +66,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D1B930D0E69F59D9DA9F0ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				974E1F13467F70999C25DC21 /* libPods-LetsGoPlaces.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9C6B364CFE520EDFECC871E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE49F65A30CD0B734BEDED01 /* Pods-LetsGoPlaces.debug.xcconfig */,
+				3AB4141FC338D4DC5399486A /* Pods-LetsGoPlaces.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EAA3FE271B61EC970020CA5B = {
 			isa = PBXGroup;
 			children = (
 				EAA3FE321B61EC970020CA5B /* LetsGoPlaces */,
 				EAA3FE4C1B61EC970020CA5B /* LetsGoPlacesTests */,
 				EAA3FE311B61EC970020CA5B /* Products */,
+				A9C6B364CFE520EDFECC871E /* Pods */,
+				8D1B930D0E69F59D9DA9F0ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,9 +152,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAA3FE531B61EC970020CA5B /* Build configuration list for PBXNativeTarget "LetsGoPlaces" */;
 			buildPhases = (
+				D89B148050923BB7943DD798 /* Check Pods Manifest.lock */,
 				EAA3FE2C1B61EC970020CA5B /* Sources */,
 				EAA3FE2D1B61EC970020CA5B /* Frameworks */,
 				EAA3FE2E1B61EC970020CA5B /* Resources */,
+				E78526872F6B2550EDF91A14 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,6 +240,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D89B148050923BB7943DD798 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E78526872F6B2550EDF91A14 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LetsGoPlaces/Pods-LetsGoPlaces-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EAA3FE2C1B61EC970020CA5B /* Sources */ = {
@@ -339,6 +398,7 @@
 		};
 		EAA3FE541B61EC970020CA5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE49F65A30CD0B734BEDED01 /* Pods-LetsGoPlaces.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LetsGoPlaces/Info.plist;
@@ -349,6 +409,7 @@
 		};
 		EAA3FE551B61EC970020CA5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AB4141FC338D4DC5399486A /* Pods-LetsGoPlaces.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LetsGoPlaces/Info.plist;
