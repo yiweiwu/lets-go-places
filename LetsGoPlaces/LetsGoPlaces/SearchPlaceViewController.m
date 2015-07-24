@@ -17,7 +17,7 @@
 
 @end
 
-NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
+static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
 
 @implementation SearchPlaceViewController
 
@@ -34,6 +34,8 @@ NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
     // Show the search bar
     [self.searchController.searchBar sizeToFit];
     self.tableView.tableHeaderView = self.searchController.searchBar;
+    
+    self.definesPresentationContext = YES;
 
 }
 
@@ -48,6 +50,7 @@ NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
 {
     if (!_placesTableViewController) {
         _placesTableViewController = [[PlacesTableViewController alloc] init];
+        _placesTableViewController.tableView.delegate = self;
     }
     return _placesTableViewController;
 }
