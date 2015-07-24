@@ -8,6 +8,7 @@
 
 #import "SearchPlaceViewController.h"
 
+#import "GooglePlacesRequestManager.h"
 #import "PlacesTableViewController.h"
 
 @interface SearchPlaceViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
@@ -98,7 +99,20 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
+    NSString *searchTerm = searchController.searchBar.text;
+    
+    // Only search when the user enters equal or more than 3 characters
+    if ([searchTerm length] < 3) {
+        return;
+    }
+    
     // make Google Places API request
+    [[GooglePlacesRequestManager sharedRequestManager] autoCompletePlacesWithInput:searchTerm
+                                                                           success:^(id places) {
+                                                                               
+                                                                           } failure:^(NSError *error) {
+                                                                               
+                                                                           }];
 }
 
 @end

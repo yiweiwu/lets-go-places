@@ -14,6 +14,7 @@
 		EAA3FE411B61EC970020CA5B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAA3FE401B61EC970020CA5B /* Images.xcassets */; };
 		EAA3FE441B61EC970020CA5B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA3FE421B61EC970020CA5B /* LaunchScreen.xib */; };
 		EAA3FE501B61EC970020CA5B /* LetsGoPlacesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA3FE4F1B61EC970020CA5B /* LetsGoPlacesTests.m */; };
+		EAA44CB21B621C8400678254 /* GooglePlacesRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA44CB11B621C8400678254 /* GooglePlacesRequestManager.m */; };
 		EAAED3FA1B62126E005FB540 /* PlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAED3F91B62126E005FB540 /* PlacesTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,8 @@
 		EAA3FE491B61EC970020CA5B /* LetsGoPlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetsGoPlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAA3FE4E1B61EC970020CA5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAA3FE4F1B61EC970020CA5B /* LetsGoPlacesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LetsGoPlacesTests.m; sourceTree = "<group>"; };
+		EAA44CB01B621C8400678254 /* GooglePlacesRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooglePlacesRequestManager.h; sourceTree = "<group>"; };
+		EAA44CB11B621C8400678254 /* GooglePlacesRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GooglePlacesRequestManager.m; sourceTree = "<group>"; };
 		EAAED3F81B62126E005FB540 /* PlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesTableViewController.h; sourceTree = "<group>"; };
 		EAAED3F91B62126E005FB540 /* PlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesTableViewController.m; sourceTree = "<group>"; };
 		FE49F65A30CD0B734BEDED01 /* Pods-LetsGoPlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsGoPlaces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsGoPlaces/Pods-LetsGoPlaces.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +115,8 @@
 				EAA3FE3B1B61EC970020CA5B /* SearchPlaceViewController.m */,
 				EAAED3F81B62126E005FB540 /* PlacesTableViewController.h */,
 				EAAED3F91B62126E005FB540 /* PlacesTableViewController.m */,
+				EAA44CB01B621C8400678254 /* GooglePlacesRequestManager.h */,
+				EAA44CB11B621C8400678254 /* GooglePlacesRequestManager.m */,
 				EAA3FE401B61EC970020CA5B /* Images.xcassets */,
 				EAA3FE421B61EC970020CA5B /* LaunchScreen.xib */,
 				EAA3FE331B61EC970020CA5B /* Supporting Files */,
@@ -282,6 +287,7 @@
 				EAA3FE3C1B61EC970020CA5B /* SearchPlaceViewController.m in Sources */,
 				EAAED3FA1B62126E005FB540 /* PlacesTableViewController.m in Sources */,
 				EAA3FE391B61EC970020CA5B /* AppDelegate.m in Sources */,
+				EAA44CB21B621C8400678254 /* GooglePlacesRequestManager.m in Sources */,
 				EAA3FE361B61EC970020CA5B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
