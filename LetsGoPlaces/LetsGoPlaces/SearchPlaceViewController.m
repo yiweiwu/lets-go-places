@@ -8,9 +8,12 @@
 
 #import "SearchPlaceViewController.h"
 
+#import "PlacesTableViewController.h"
+
 @interface SearchPlaceViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
 @property (nonatomic, strong) UISearchController *searchController;
+@property (nonatomic, strong) PlacesTableViewController *placesTableViewController;
 
 @end
 
@@ -24,6 +27,8 @@ NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
     self.title = @"Let's go places";
     self.view.backgroundColor = [UIColor blueColor];
     
+    // Set up tableView
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:placeTableViewCellIdentifier];
     
     // Show the search bar
@@ -39,10 +44,18 @@ NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
 
 #pragma mark - Properties
 
+- (PlacesTableViewController *)placesTableViewController
+{
+    if (!_placesTableViewController) {
+        _placesTableViewController = [[PlacesTableViewController alloc] init];
+    }
+    return _placesTableViewController;
+}
+
 - (UISearchController *)searchController
 {
     if (!_searchController) {
-        _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+        _searchController = [[UISearchController alloc] initWithSearchResultsController:self.placesTableViewController];
         _searchController.searchResultsUpdater = self;
         _searchController.delegate = self;
         _searchController.searchBar.delegate = self;
@@ -54,7 +67,7 @@ NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
