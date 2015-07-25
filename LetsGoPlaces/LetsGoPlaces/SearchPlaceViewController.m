@@ -51,7 +51,6 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
 {
     if (!_placesTableViewController) {
         _placesTableViewController = [[PlacesTableViewController alloc] init];
-        _placesTableViewController.tableView.delegate = self;
     }
     return _placesTableViewController;
 }

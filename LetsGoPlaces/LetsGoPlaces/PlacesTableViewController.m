@@ -8,6 +8,7 @@
 
 #import "PlacesTableViewController.h"
 
+#import "GooglePlacesRequestManager.h"
 #import "Place.h"
 
 @interface PlacesTableViewController ()
@@ -54,7 +55,18 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    Place *place = [self placeAtIndexPath:indexPath];
+    if (!place || !place.placeId) {
+        return;
+    }
+    [[GooglePlacesRequestManager sharedRequestManager]
+        placeDetailWithPlaceId:place.placeId
+                       success:^(id responseObject) {
+                           NSLog(@"response: %@", responseObject);
+                       }
+                       failure:^(NSError *error) {
+                           NSLog(@"error: %@", error.localizedDescription);
+                       }];
 }
 
 #pragma mark - Place

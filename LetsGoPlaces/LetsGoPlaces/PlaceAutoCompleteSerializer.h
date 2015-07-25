@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Yi-Wei Wu. All rights reserved.
 //
 
-#import "AFURLResponseSerialization.h"
+#import "GooglePlacesResponseSerializer.h"
 
-@interface PlacesSerializer : AFJSONResponseSerializer
+@interface PlaceAutoCompleteSerializer : GooglePlacesResponseSerializer
 
 @end

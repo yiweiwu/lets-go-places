@@ -16,8 +16,10 @@
 		EAA3FE501B61EC970020CA5B /* LetsGoPlacesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA3FE4F1B61EC970020CA5B /* LetsGoPlacesTests.m */; };
 		EAA44CB21B621C8400678254 /* GooglePlacesRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA44CB11B621C8400678254 /* GooglePlacesRequestManager.m */; };
 		EAAED3FA1B62126E005FB540 /* PlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAED3F91B62126E005FB540 /* PlacesTableViewController.m */; };
-		EADF4F211B63474400F84ACB /* PlacesSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = EADF4F201B63474400F84ACB /* PlacesSerializer.m */; };
+		EADF4F211B63474400F84ACB /* PlaceAutoCompleteSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = EADF4F201B63474400F84ACB /* PlaceAutoCompleteSerializer.m */; };
 		EADF4F241B6347AC00F84ACB /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = EADF4F231B6347AC00F84ACB /* Place.m */; };
+		EADF4F271B63629F00F84ACB /* PlaceDetailsSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = EADF4F261B63629F00F84ACB /* PlaceDetailsSerializer.m */; };
+		EADF4F2A1B63641400F84ACB /* GooglePlacesResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = EADF4F291B63641400F84ACB /* GooglePlacesResponseSerializer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,10 +51,14 @@
 		EAA44CB11B621C8400678254 /* GooglePlacesRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GooglePlacesRequestManager.m; sourceTree = "<group>"; };
 		EAAED3F81B62126E005FB540 /* PlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesTableViewController.h; sourceTree = "<group>"; };
 		EAAED3F91B62126E005FB540 /* PlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesTableViewController.m; sourceTree = "<group>"; };
-		EADF4F1F1B63474400F84ACB /* PlacesSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesSerializer.h; sourceTree = "<group>"; };
-		EADF4F201B63474400F84ACB /* PlacesSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesSerializer.m; sourceTree = "<group>"; };
+		EADF4F1F1B63474400F84ACB /* PlaceAutoCompleteSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceAutoCompleteSerializer.h; sourceTree = "<group>"; };
+		EADF4F201B63474400F84ACB /* PlaceAutoCompleteSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceAutoCompleteSerializer.m; sourceTree = "<group>"; };
 		EADF4F221B6347AC00F84ACB /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
 		EADF4F231B6347AC00F84ACB /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		EADF4F251B63629F00F84ACB /* PlaceDetailsSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailsSerializer.h; sourceTree = "<group>"; };
+		EADF4F261B63629F00F84ACB /* PlaceDetailsSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailsSerializer.m; sourceTree = "<group>"; };
+		EADF4F281B63641400F84ACB /* GooglePlacesResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooglePlacesResponseSerializer.h; sourceTree = "<group>"; };
+		EADF4F291B63641400F84ACB /* GooglePlacesResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GooglePlacesResponseSerializer.m; sourceTree = "<group>"; };
 		FE49F65A30CD0B734BEDED01 /* Pods-LetsGoPlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsGoPlaces.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsGoPlaces/Pods-LetsGoPlaces.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,10 +132,14 @@
 				EAA3FE401B61EC970020CA5B /* Images.xcassets */,
 				EAA3FE421B61EC970020CA5B /* LaunchScreen.xib */,
 				EAA3FE331B61EC970020CA5B /* Supporting Files */,
-				EADF4F1F1B63474400F84ACB /* PlacesSerializer.h */,
-				EADF4F201B63474400F84ACB /* PlacesSerializer.m */,
+				EADF4F1F1B63474400F84ACB /* PlaceAutoCompleteSerializer.h */,
+				EADF4F201B63474400F84ACB /* PlaceAutoCompleteSerializer.m */,
 				EADF4F221B6347AC00F84ACB /* Place.h */,
 				EADF4F231B6347AC00F84ACB /* Place.m */,
+				EADF4F251B63629F00F84ACB /* PlaceDetailsSerializer.h */,
+				EADF4F261B63629F00F84ACB /* PlaceDetailsSerializer.m */,
+				EADF4F281B63641400F84ACB /* GooglePlacesResponseSerializer.h */,
+				EADF4F291B63641400F84ACB /* GooglePlacesResponseSerializer.m */,
 			);
 			path = LetsGoPlaces;
 			sourceTree = "<group>";
@@ -294,9 +304,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EADF4F271B63629F00F84ACB /* PlaceDetailsSerializer.m in Sources */,
 				EAA3FE3C1B61EC970020CA5B /* SearchPlaceViewController.m in Sources */,
-				EADF4F211B63474400F84ACB /* PlacesSerializer.m in Sources */,
+				EADF4F211B63474400F84ACB /* PlaceAutoCompleteSerializer.m in Sources */,
 				EADF4F241B6347AC00F84ACB /* Place.m in Sources */,
+				EADF4F2A1B63641400F84ACB /* GooglePlacesResponseSerializer.m in Sources */,
 				EAAED3FA1B62126E005FB540 /* PlacesTableViewController.m in Sources */,
 				EAA3FE391B61EC970020CA5B /* AppDelegate.m in Sources */,
 				EAA44CB21B621C8400678254 /* GooglePlacesRequestManager.m in Sources */,
