@@ -12,5 +12,7 @@
 
 @property(nonatomic, strong) NSString *placeDescription;
 @property(nonatomic, strong) NSString *placeId;
+@property(nonatomic, strong) NSString *name;
+@property(nonatomic, strong) NSString *url;
 
 @end

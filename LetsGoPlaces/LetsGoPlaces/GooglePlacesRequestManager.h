@@ -21,12 +21,19 @@ typedef void (^GPRequestFailureBlock) (NSError *);
  */
 @interface GooglePlacesRequestManager : NSObject
 
+@property(nonatomic, strong) NSOperationQueue *requestQueue;
+
 /// Return a shared GooglePlacesRequestManager
 + (instancetype)sharedRequestManager;
 
 /// Make auto complete API request with input
-- (void)autoCompletePlacesWithInput:(NSString *)input
-                            success:(GPRequestSuccessBlock)success
-                            failure:(GPRequestFailureBlock)failure;
+- (NSOperation *)autoCompletePlacesWithInput:(NSString *)input
+                                     success:(GPRequestSuccessBlock)success
+                                     failure:(GPRequestFailureBlock)failure;
+
+/// Make place details API request with place id
+- (NSOperation *)placeDetailWithPlaceId:(NSString *)placeId
+                                success:(GPRequestSuccessBlock)success
+                                failure:(GPRequestFailureBlock)failure;
 
 @end

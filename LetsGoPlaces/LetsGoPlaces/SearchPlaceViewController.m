@@ -51,7 +51,6 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
 {
     if (!_placesTableViewController) {
         _placesTableViewController = [[PlacesTableViewController alloc] init];
-        _placesTableViewController.tableView.delegate = self;
     }
     return _placesTableViewController;
 }
@@ -108,7 +107,7 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
     
     // make Google Places API request
     __weak id weakSelf = self;
-    [[GooglePlacesRequestManager sharedRequestManager]
+    NSOperation *operation = [[GooglePlacesRequestManager sharedRequestManager]
         autoCompletePlacesWithInput:searchTerm
         success:^(id places) {
             if (weakSelf) {
@@ -130,6 +129,7 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
                 [placesTableViewController.tableView reloadData];
             }
         }];
+    [[GooglePlacesRequestManager sharedRequestManager].requestQueue addOperation:operation];
 }
 
 @end
