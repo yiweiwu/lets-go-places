@@ -29,4 +29,9 @@ typedef void (^GPRequestFailureBlock) (NSError *);
                             success:(GPRequestSuccessBlock)success
                             failure:(GPRequestFailureBlock)failure;
 
+/// Make place details API request with place id
+- (void)placeDetailWithPlaceId:(NSString *)placeId
+                       success:(GPRequestSuccessBlock)success
+                       failure:(GPRequestFailureBlock)failure;
+
 @end

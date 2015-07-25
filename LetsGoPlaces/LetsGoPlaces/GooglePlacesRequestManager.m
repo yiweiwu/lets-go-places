@@ -20,6 +20,7 @@
 
 static NSString *const GPAPIKey = @"AIzaSyDHXr1kT955ZT6lTBX2jbKWOe-o0OuocwI";
 static NSString *const GPAutoCompleteURL = @"https://maps.googleapis.com/maps/api/place/autocomplete/json";
+static NSString *const GPPlaceDetailsURL = @"https://maps.googleapis.com/maps/api/place/details/json";
 
 
 @implementation GooglePlacesRequestManager
@@ -58,6 +59,36 @@ static NSString *const GPAutoCompleteURL = @"https://maps.googleapis.com/maps/ap
 
     AFHTTPRequestOperation * operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [PlacesSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+    [self.requestQueue addOperation:operation];
+}
+
+- (void)placeDetailWithPlaceId:(NSString *)placeId
+                       success:(GPRequestSuccessBlock)success
+                       failure:(GPRequestFailureBlock)failure
+{
+    // If the location is known, we can pass the location to the API
+    NSDictionary *params = @{
+                             @"placeid": placeId,
+                             @"key": GPAPIKey,
+                             };
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer]
+                                        requestWithMethod:@"GET"
+                                                URLString:GPPlaceDetailsURL
+                                               parameters:params
+                                                    error:nil];
+    
+    AFHTTPRequestOperation * operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
             success(responseObject);
