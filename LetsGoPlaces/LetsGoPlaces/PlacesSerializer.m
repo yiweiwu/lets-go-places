@@ -51,10 +51,15 @@ typedef NS_ENUM(NSInteger, AutoCompleteErrorCode) {
         // parsing error
         
         NSString *errorMessage = responseDict[@"error_message"];
-        NSDictionary *userInfo = @{ NSLocalizedDescriptionKey: errorMessage };
-        
-        // get error code by status
         NSString *status = responseDict[@"status"];
+        
+        // There is no error message when it's a zero results error
+        NSDictionary *userInfo = nil;
+        if (errorMessage) {
+            userInfo = @{ NSLocalizedDescriptionKey: errorMessage };
+        }
+
+        // get error code by status
         NSInteger code = AutoCompleteErrorCodeUnknown;
         if ([status isEqualToString:@"ZERO_RESULTS"]) {
             code = AutoCompleteErrorCodeZeroResults;
