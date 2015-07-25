@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class Place;
+
 @interface PlacesTableViewController : UITableViewController
 
 @property(nonatomic, strong) NSArray *places;
+
+- (Place *)placeAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

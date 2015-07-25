@@ -15,6 +15,7 @@
 		EAA3FE441B61EC970020CA5B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA3FE421B61EC970020CA5B /* LaunchScreen.xib */; };
 		EAA3FE501B61EC970020CA5B /* LetsGoPlacesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA3FE4F1B61EC970020CA5B /* LetsGoPlacesTests.m */; };
 		EAA44CB21B621C8400678254 /* GooglePlacesRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA44CB11B621C8400678254 /* GooglePlacesRequestManager.m */; };
+		EAA4D5271B6375B100F51835 /* PlaceDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA4D5261B6375B100F51835 /* PlaceDetailsViewController.m */; };
 		EAAED3FA1B62126E005FB540 /* PlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAED3F91B62126E005FB540 /* PlacesTableViewController.m */; };
 		EADF4F211B63474400F84ACB /* PlaceAutoCompleteSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = EADF4F201B63474400F84ACB /* PlaceAutoCompleteSerializer.m */; };
 		EADF4F241B6347AC00F84ACB /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = EADF4F231B6347AC00F84ACB /* Place.m */; };
@@ -49,6 +50,8 @@
 		EAA3FE4F1B61EC970020CA5B /* LetsGoPlacesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LetsGoPlacesTests.m; sourceTree = "<group>"; };
 		EAA44CB01B621C8400678254 /* GooglePlacesRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooglePlacesRequestManager.h; sourceTree = "<group>"; };
 		EAA44CB11B621C8400678254 /* GooglePlacesRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GooglePlacesRequestManager.m; sourceTree = "<group>"; };
+		EAA4D5251B6375B100F51835 /* PlaceDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailsViewController.h; sourceTree = "<group>"; };
+		EAA4D5261B6375B100F51835 /* PlaceDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailsViewController.m; sourceTree = "<group>"; };
 		EAAED3F81B62126E005FB540 /* PlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesTableViewController.h; sourceTree = "<group>"; };
 		EAAED3F91B62126E005FB540 /* PlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesTableViewController.m; sourceTree = "<group>"; };
 		EADF4F1F1B63474400F84ACB /* PlaceAutoCompleteSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceAutoCompleteSerializer.h; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 				EADF4F261B63629F00F84ACB /* PlaceDetailsSerializer.m */,
 				EADF4F281B63641400F84ACB /* GooglePlacesResponseSerializer.h */,
 				EADF4F291B63641400F84ACB /* GooglePlacesResponseSerializer.m */,
+				EAA4D5251B6375B100F51835 /* PlaceDetailsViewController.h */,
+				EAA4D5261B6375B100F51835 /* PlaceDetailsViewController.m */,
 			);
 			path = LetsGoPlaces;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				EADF4F211B63474400F84ACB /* PlaceAutoCompleteSerializer.m in Sources */,
 				EADF4F241B6347AC00F84ACB /* Place.m in Sources */,
 				EADF4F2A1B63641400F84ACB /* GooglePlacesResponseSerializer.m in Sources */,
+				EAA4D5271B6375B100F51835 /* PlaceDetailsViewController.m in Sources */,
 				EAAED3FA1B62126E005FB540 /* PlacesTableViewController.m in Sources */,
 				EAA3FE391B61EC970020CA5B /* AppDelegate.m in Sources */,
 				EAA44CB21B621C8400678254 /* GooglePlacesRequestManager.m in Sources */,

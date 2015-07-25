@@ -9,6 +9,7 @@
 #import "SearchPlaceViewController.h"
 
 #import "GooglePlacesRequestManager.h"
+#import "Place.h"
 #import "PlacesTableViewController.h"
 
 @interface SearchPlaceViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
@@ -37,7 +38,6 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
     self.tableView.tableHeaderView = self.searchController.searchBar;
     
     self.definesPresentationContext = YES;
-
 }
 
 - (void)didReceiveMemoryWarning {

@@ -51,6 +51,8 @@ NSString *const GooglePlacesSerializerErrorDomain = @"GooglePlacesSerializerErro
     NSDictionary *userInfo = nil;
     if (errorMessage) {
         userInfo = @{ NSLocalizedDescriptionKey: errorMessage };
+    } else {
+        userInfo = @{ NSLocalizedDescriptionKey: status };
     }
     
    return [NSError errorWithDomain:GooglePlacesSerializerErrorDomain
