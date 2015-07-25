@@ -31,7 +31,11 @@ typedef NS_ENUM(NSInteger, PlaceDetailsErrorCode) {
     place.placeDescription = result[@"formatted_address"];
     place.placeId = result[@"place_id"];
     place.name = result[@"name"];
-    place.url = result[@"url"];
+    
+    NSDictionary *location = result[@"geometry"][@"location"];
+    NSNumber *lat = location[@"lat"];
+    NSNumber *lng = location[@"lng"];
+    place.location = [[CLLocation alloc] initWithLatitude:[lat doubleValue] longitude:[lng doubleValue]];
     return place;
 }
 
