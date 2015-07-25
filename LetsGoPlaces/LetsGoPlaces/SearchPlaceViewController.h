@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchPlaceViewController : UITableViewController
+@interface SearchPlaceViewController : UIViewController
 
 
 @end
