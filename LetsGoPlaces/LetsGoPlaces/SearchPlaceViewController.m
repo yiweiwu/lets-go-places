@@ -9,7 +9,6 @@
 #import "SearchPlaceViewController.h"
 
 #import "GooglePlacesRequestManager.h"
-#import "Place.h"
 #import "PlacesTableViewController.h"
 
 @interface SearchPlaceViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
@@ -27,15 +26,12 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
     [super viewDidLoad];
     
     self.title = @"Let's go places";
-    self.view.backgroundColor = [UIColor blueColor];
-    
-    // Set up tableView
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:placeTableViewCellIdentifier];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     // Show the search bar
     [self.searchController.searchBar sizeToFit];
-    self.tableView.tableHeaderView = self.searchController.searchBar;
+    [self.view addSubview:self.searchController.searchBar];
     
     self.definesPresentationContext = YES;
 }
@@ -64,27 +60,6 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
         _searchController.searchBar.delegate = self;
     }
     return _searchController;
-}
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:placeTableViewCellIdentifier forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", indexPath];
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
 }
 
 #pragma mark - UISearchBarDelegate
