@@ -50,10 +50,11 @@ static NSString *const GPAutoCompleteURL = @"https://maps.googleapis.com/maps/ap
                              @"types": @"geocode",
                              };
     
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET"
-                                                  URLString:GPAutoCompleteURL
-                                                 parameters:params
-                                                      error:nil];
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer]
+                                        requestWithMethod:@"GET"
+                                                URLString:GPAutoCompleteURL
+                                               parameters:params
+                                                    error:nil];
 
     AFHTTPRequestOperation * operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [PlacesSerializer serializer];
