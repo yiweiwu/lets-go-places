@@ -10,6 +10,7 @@
 
 #import "AFNetworking.h"
 #import "PlaceAutoCompleteSerializer.h"
+#import "PlaceDetailsSerializer.h"
 
 @interface GooglePlacesRequestManager ()
 
@@ -88,7 +89,7 @@ static NSString *const GPPlaceDetailsURL = @"https://maps.googleapis.com/maps/ap
                                                     error:nil];
     
     AFHTTPRequestOperation * operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    operation.responseSerializer = [PlaceDetailsSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
             success(responseObject);

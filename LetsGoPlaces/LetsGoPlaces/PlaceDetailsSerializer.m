@@ -25,13 +25,35 @@ typedef NS_ENUM(NSInteger, PlaceDetailsErrorCode) {
                   responseDictionary:(NSDictionary *)responseDict
                                error:(NSError *__autoreleasing *)error
 {
-    //TODO: parse the response to into place objects
-    return responseDict;
+    NSDictionary *result = responseDict[@"result"];
+    
+    Place *place = [[Place alloc] init];
+    place.placeDescription = result[@"formatted_address"];
+    place.placeId = result[@"place_id"];
+    place.name = result[@"name"];
+    place.url = result[@"url"];
+    return place;
 }
 
 - (NSInteger)errorCodeFromResponse:(NSHTTPURLResponse *)response status:(NSString *)status
 {
-    return response.statusCode;
+    NSInteger code = PlaceDetailsErrorCodeUnknown;
+    if ([status isEqualToString:@"ZERO_RESULTS"]) {
+        code = PlaceDetailsErrorCodeZeroResults;
+    }
+    else if ([status isEqualToString:@"OVER_QUERY_LIMIT"]) {
+        code = PlaceDetailsErrorCodeOverQueryLimit;
+    }
+    else if ([status isEqualToString:@"REQUEST_DENIED"]) {
+        code = PlaceDetailsErrorCodeRequestDenied;
+    }
+    else if ([status isEqualToString:@"INVALID_REQUEST"]) {
+        code = PlaceDetailsErrorCodeInvalidRequest;
+    }
+    else if ([status isEqualToString:@"NOT_FOUND"]) {
+        code = PlaceDetailsErrorCodeNotFound;
+    }
+    return code;
 }
 
 @end
