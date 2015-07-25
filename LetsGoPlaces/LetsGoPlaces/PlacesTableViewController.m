@@ -13,6 +13,8 @@
 
 @interface PlacesTableViewController ()
 
+@property(nonatomic, strong) NSOperation *placeDetailsOperation;
+
 @end
 
 static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
@@ -59,14 +61,23 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
     if (!place || !place.placeId) {
         return;
     }
-    [[GooglePlacesRequestManager sharedRequestManager]
+    
+    if (self.placeDetailsOperation) {
+        [self.placeDetailsOperation cancel];
+        self.placeDetailsOperation = nil;
+    }
+    
+    self.placeDetailsOperation = [[GooglePlacesRequestManager sharedRequestManager]
         placeDetailWithPlaceId:place.placeId
                        success:^(id responseObject) {
-                           NSLog(@"response: %@", responseObject);
+                           Place *place = (Place *)responseObject;
+                           NSLog(@"place.name %@", place.name);
                        }
                        failure:^(NSError *error) {
                            NSLog(@"error: %@", error.localizedDescription);
                        }];
+    
+    [[GooglePlacesRequestManager sharedRequestManager].requestQueue addOperation:self.placeDetailsOperation];
 }
 
 #pragma mark - Place

@@ -14,8 +14,6 @@
 
 @interface GooglePlacesRequestManager ()
 
-@property(nonatomic, strong) NSOperationQueue *requestQueue;
-
 @end
 
 
@@ -40,9 +38,9 @@ static NSString *const GPPlaceDetailsURL = @"https://maps.googleapis.com/maps/ap
 }
 
 
-- (void)autoCompletePlacesWithInput:(NSString *)input
-                            success:(GPRequestSuccessBlock)success
-                            failure:(GPRequestFailureBlock)failure
+- (NSOperation *)autoCompletePlacesWithInput:(NSString *)input
+                                     success:(GPRequestSuccessBlock)success
+                                     failure:(GPRequestFailureBlock)failure
 {
     // If the location is known, we can pass the location to the API
     NSDictionary *params = @{
@@ -69,12 +67,12 @@ static NSString *const GPPlaceDetailsURL = @"https://maps.googleapis.com/maps/ap
             failure(error);
         }
     }];
-    [self.requestQueue addOperation:operation];
+    return operation;
 }
 
-- (void)placeDetailWithPlaceId:(NSString *)placeId
-                       success:(GPRequestSuccessBlock)success
-                       failure:(GPRequestFailureBlock)failure
+- (NSOperation *)placeDetailWithPlaceId:(NSString *)placeId
+                                success:(GPRequestSuccessBlock)success
+                                failure:(GPRequestFailureBlock)failure
 {
     // If the location is known, we can pass the location to the API
     NSDictionary *params = @{
@@ -99,7 +97,7 @@ static NSString *const GPPlaceDetailsURL = @"https://maps.googleapis.com/maps/ap
             failure(error);
         }
     }];
-    [self.requestQueue addOperation:operation];
+    return operation;
 }
 
 @end
