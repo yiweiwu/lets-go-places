@@ -8,6 +8,8 @@
 
 #import "PlacesTableViewController.h"
 
+#import "Place.h"
+
 @interface PlacesTableViewController ()
 
 @end
@@ -38,7 +40,13 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:placeTableViewCellIdentifier forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", indexPath];
+    Place *place = [self placeAtIndexPath:indexPath];
+    if (place) {
+        cell.textLabel.text = place.placeDescription? place.placeDescription: @"";
+    }
+    else {
+        cell.textLabel.text = @"";
+    }
     return cell;
 }
 
@@ -47,6 +55,17 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+}
+
+#pragma mark - Place
+
+- (Place *)placeAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Avoid out of index exception
+    if ([self.places count] > indexPath.row) {
+        return self.places[indexPath.row];
+    }
+    return nil;
 }
 
 @end

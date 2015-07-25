@@ -56,14 +56,15 @@ static NSString *const GPAutoCompleteURL = @"https://maps.googleapis.com/maps/ap
                                                       error:nil];
 
     AFHTTPRequestOperation * operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    
-    //TODO: User places serializer
     operation.responseSerializer = [PlacesSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSLog(@"Places %@", responseObject); 
+        if (success) {
+            success(responseObject);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", error.localizedDescription);
+        if (failure) {
+            failure(error);
+        }
     }];
     [self.requestQueue addOperation:operation];
 }

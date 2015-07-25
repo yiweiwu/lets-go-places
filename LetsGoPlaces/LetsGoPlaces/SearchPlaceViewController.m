@@ -107,12 +107,29 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
     }
     
     // make Google Places API request
-    [[GooglePlacesRequestManager sharedRequestManager] autoCompletePlacesWithInput:searchTerm
-                                                                           success:^(id places) {
-                                                                               
-                                                                           } failure:^(NSError *error) {
-                                                                               
-                                                                           }];
+    __weak id weakSelf = self;
+    [[GooglePlacesRequestManager sharedRequestManager]
+        autoCompletePlacesWithInput:searchTerm
+        success:^(id places) {
+            if (weakSelf) {
+                // Populate the results
+                SearchPlaceViewController *strongSelf = weakSelf;
+                PlacesTableViewController *placesTableViewController = (PlacesTableViewController *)strongSelf.searchController.searchResultsController;
+                placesTableViewController.places = places;
+                [placesTableViewController.tableView reloadData];
+            }
+        }
+        failure:^(NSError *error) {
+            if (weakSelf) {
+                //TODO: inform the user that there is an error
+                
+                // Clear the previous results
+                SearchPlaceViewController *strongSelf = weakSelf;
+                PlacesTableViewController *placesTableViewController = (PlacesTableViewController *)strongSelf.searchController.searchResultsController;
+                placesTableViewController.places = @[];
+                [placesTableViewController.tableView reloadData];
+            }
+        }];
 }
 
 @end
