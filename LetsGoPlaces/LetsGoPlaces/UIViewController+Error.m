@@ -26,6 +26,9 @@ static NSString *const LGAlertTitle = @"Let's go places";
     
     [alert addAction:ok];
     
+    // NOTE: when we present the view controller while dissmising the previous alert controller is not done,
+    // we will get a warning and the new one won't be presented.
+    // It's probably not too bad because user don't have to click mulitiple "OK" button for now.
     [self presentViewController:alert animated:YES completion:nil];
 }
 
