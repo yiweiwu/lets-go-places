@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D3B6C3DABB21791063208EB9 /* libPods-LetsGoPlaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 974E1F13467F70999C25DC21 /* libPods-LetsGoPlaces.a */; };
+		EA91CC7E1B654493003A1284 /* LGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA91CC7D1B654493003A1284 /* LGViewController.m */; };
+		EA91CC811B6546C0003A1284 /* UIViewController+Error.m in Sources */ = {isa = PBXBuildFile; fileRef = EA91CC801B6546C0003A1284 /* UIViewController+Error.m */; };
 		EAA3FE361B61EC970020CA5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA3FE351B61EC970020CA5B /* main.m */; };
 		EAA3FE391B61EC970020CA5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA3FE381B61EC970020CA5B /* AppDelegate.m */; };
 		EAA3FE3C1B61EC970020CA5B /* SearchPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA3FE3B1B61EC970020CA5B /* SearchPlaceViewController.m */; };
@@ -36,6 +38,10 @@
 /* Begin PBXFileReference section */
 		3AB4141FC338D4DC5399486A /* Pods-LetsGoPlaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsGoPlaces.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsGoPlaces/Pods-LetsGoPlaces.release.xcconfig"; sourceTree = "<group>"; };
 		974E1F13467F70999C25DC21 /* libPods-LetsGoPlaces.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LetsGoPlaces.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA91CC7C1B654493003A1284 /* LGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGViewController.h; sourceTree = "<group>"; };
+		EA91CC7D1B654493003A1284 /* LGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGViewController.m; sourceTree = "<group>"; };
+		EA91CC7F1B6546C0003A1284 /* UIViewController+Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Error.h"; sourceTree = "<group>"; };
+		EA91CC801B6546C0003A1284 /* UIViewController+Error.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Error.m"; sourceTree = "<group>"; };
 		EAA3FE301B61EC970020CA5B /* LetsGoPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsGoPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAA3FE341B61EC970020CA5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAA3FE351B61EC970020CA5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -126,6 +132,10 @@
 			children = (
 				EAA3FE371B61EC970020CA5B /* AppDelegate.h */,
 				EAA3FE381B61EC970020CA5B /* AppDelegate.m */,
+				EA91CC7C1B654493003A1284 /* LGViewController.h */,
+				EA91CC7D1B654493003A1284 /* LGViewController.m */,
+				EA91CC7F1B6546C0003A1284 /* UIViewController+Error.h */,
+				EA91CC801B6546C0003A1284 /* UIViewController+Error.m */,
 				EAA3FE3A1B61EC970020CA5B /* SearchPlaceViewController.h */,
 				EAA3FE3B1B61EC970020CA5B /* SearchPlaceViewController.m */,
 				EAAED3F81B62126E005FB540 /* PlacesTableViewController.h */,
@@ -310,11 +320,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EADF4F271B63629F00F84ACB /* PlaceDetailsSerializer.m in Sources */,
+				EA91CC811B6546C0003A1284 /* UIViewController+Error.m in Sources */,
 				EAA3FE3C1B61EC970020CA5B /* SearchPlaceViewController.m in Sources */,
 				EADF4F211B63474400F84ACB /* PlaceAutoCompleteSerializer.m in Sources */,
 				EADF4F241B6347AC00F84ACB /* Place.m in Sources */,
 				EADF4F2A1B63641400F84ACB /* GooglePlacesResponseSerializer.m in Sources */,
 				EAA4D5271B6375B100F51835 /* PlaceDetailsViewController.m in Sources */,
+				EA91CC7E1B654493003A1284 /* LGViewController.m in Sources */,
 				EAAED3FA1B62126E005FB540 /* PlacesTableViewController.m in Sources */,
 				EAA3FE391B61EC970020CA5B /* AppDelegate.m in Sources */,
 				EAA44CB21B621C8400678254 /* GooglePlacesRequestManager.m in Sources */,

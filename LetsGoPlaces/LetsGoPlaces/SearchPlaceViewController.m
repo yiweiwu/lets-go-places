@@ -10,11 +10,14 @@
 
 #import "GooglePlacesRequestManager.h"
 #import "PlacesTableViewController.h"
+#import "UIViewController+Error.h"
 
 @interface SearchPlaceViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
 @property (nonatomic, strong) UISearchController *searchController;
 @property (nonatomic, strong) PlacesTableViewController *placesTableViewController;
+
+@property (nonatomic, strong) NSString *currentSearchTerm;
 
 @end
 
@@ -26,8 +29,6 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
     [super viewDidLoad];
     
     self.title = @"Let's go places";
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     // Show the search bar
     [self.searchController.searchBar sizeToFit];
@@ -69,6 +70,11 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
     [searchBar resignFirstResponder];
 }
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    self.currentSearchTerm = nil;
+}
+
 #pragma mark - UISearchResultsUpdating
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
@@ -80,26 +86,37 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
         return;
     }
     
+    // This delegate method is called when it becomes the first responder as well.
+    // Try to avoid making duplicate requests.
+    if ([self.currentSearchTerm isEqualToString:searchTerm]) {
+        return;
+    }
+    
+    // Caching the current search term
+    self.currentSearchTerm = searchTerm;
+    
     // make Google Places API request
     __weak id weakSelf = self;
     NSOperation *operation = [[GooglePlacesRequestManager sharedRequestManager]
-        autoCompletePlacesWithInput:searchTerm
+        autoCompletePlacesWithInput:self.currentSearchTerm
         success:^(id places) {
             if (weakSelf) {
                 // Populate the results
                 SearchPlaceViewController *strongSelf = weakSelf;
-                PlacesTableViewController *placesTableViewController = (PlacesTableViewController *)strongSelf.searchController.searchResultsController;
+                PlacesTableViewController *placesTableViewController = strongSelf.placesTableViewController;
                 placesTableViewController.places = places;
                 [placesTableViewController.tableView reloadData];
             }
         }
         failure:^(NSError *error) {
             if (weakSelf) {
-                //TODO: inform the user that there is an error
+                SearchPlaceViewController *strongSelf = weakSelf;
+                
+                // Inform the user about the error
+                [strongSelf showAlertControllerWithError:error];
                 
                 // Clear the previous results
-                SearchPlaceViewController *strongSelf = weakSelf;
-                PlacesTableViewController *placesTableViewController = (PlacesTableViewController *)strongSelf.searchController.searchResultsController;
+                PlacesTableViewController *placesTableViewController = strongSelf.placesTableViewController;
                 placesTableViewController.places = @[];
                 [placesTableViewController.tableView reloadData];
             }

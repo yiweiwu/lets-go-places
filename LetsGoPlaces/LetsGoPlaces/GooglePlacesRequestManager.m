@@ -43,12 +43,14 @@ static NSString *const GPPlaceDetailsURL = @"https://maps.googleapis.com/maps/ap
                                      failure:(GPRequestFailureBlock)failure
 {
     // If the location is known, we can pass the location to the API
-    NSDictionary *params = @{
-                             @"input": input,
-                             @"key": GPAPIKey,
-                             @"radius": @(500),
-                             @"types": @"geocode",
-                             };
+    // Also, We could use other types besides geocode, but just to simplify things here
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"key"] = GPAPIKey;
+    params[@"radius"] = @(500);
+    params[@"types"] =  @"geocode";
+    if (input) {
+        params[@"input"] = input;
+    }
     
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer]
                                         requestWithMethod:@"GET"
@@ -75,10 +77,11 @@ static NSString *const GPPlaceDetailsURL = @"https://maps.googleapis.com/maps/ap
                                 failure:(GPRequestFailureBlock)failure
 {
     // If the location is known, we can pass the location to the API
-    NSDictionary *params = @{
-                             @"placeid": placeId,
-                             @"key": GPAPIKey,
-                             };
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"key"] = GPAPIKey;
+    if (placeId) {
+        params[@"placeid"] = placeId;
+    }
     
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer]
                                         requestWithMethod:@"GET"
