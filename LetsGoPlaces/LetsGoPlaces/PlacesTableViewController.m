@@ -23,7 +23,8 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.backgroundColor = [UIColor yellowColor];
+    // Set up tableView
+    self.tableView.backgroundColor = [UIColor lightGrayColor];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:placeTableViewCellIdentifier];
 }
 
