@@ -8,9 +8,10 @@
 
 #import "PlaceDetailsViewController.h"
 
-#import "UIImageView+AFNetworking.h"
 #import "GooglePlacesRequestManager.h"
 #import "Place.h"
+#import "UIImageView+AFNetworking.h"
+#import "UIViewController+Error.h"
 
 @interface PlaceDetailsViewController ()
 
@@ -105,19 +106,10 @@
                                       }
                                   }
                                   failure:^(NSError *error) {
-                                      UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Let's go places"
-                                                                                                     message:error.localizedDescription
-                                                                                              preferredStyle:UIAlertControllerStyleAlert];
-                                      
-                                      UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK"
-                                                                                   style:UIAlertActionStyleDefault
-                                                                                 handler:^(UIAlertAction * action) {
-                                                                                     [alert dismissViewControllerAnimated:YES completion:nil];
-                                                                                 }];
-                                      
-                                      [alert addAction:ok];
-                                      
-                                      [self presentViewController:alert animated:YES completion:nil];
+                                      if (weakSelf ) {
+                                          PlaceDetailsViewController *strongSelf = weakSelf;
+                                          [strongSelf showAlertControllerWithError:error];
+                                      }
                                   }];
     
     [[GooglePlacesRequestManager sharedRequestManager].requestQueue addOperation:self.placeDetailsOperation];

@@ -10,6 +10,7 @@
 
 #import "GooglePlacesRequestManager.h"
 #import "PlacesTableViewController.h"
+#import "UIViewController+Error.h"
 
 @interface SearchPlaceViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
@@ -93,10 +94,12 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
         }
         failure:^(NSError *error) {
             if (weakSelf) {
-                // TODO: inform the user that there is an error
+                SearchPlaceViewController *strongSelf = weakSelf;
+                
+                // Inform the user about the error
+                [strongSelf showAlertControllerWithError:error];
                 
                 // Clear the previous results
-                SearchPlaceViewController *strongSelf = weakSelf;
                 PlacesTableViewController *placesTableViewController = strongSelf.placesTableViewController;
                 placesTableViewController.places = @[];
                 [placesTableViewController.tableView reloadData];
