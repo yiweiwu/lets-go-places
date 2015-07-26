@@ -26,8 +26,6 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
     [super viewDidLoad];
     
     self.title = @"Let's go places";
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     // Show the search bar
     [self.searchController.searchBar sizeToFit];
@@ -88,18 +86,18 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
             if (weakSelf) {
                 // Populate the results
                 SearchPlaceViewController *strongSelf = weakSelf;
-                PlacesTableViewController *placesTableViewController = (PlacesTableViewController *)strongSelf.searchController.searchResultsController;
+                PlacesTableViewController *placesTableViewController = strongSelf.placesTableViewController;
                 placesTableViewController.places = places;
                 [placesTableViewController.tableView reloadData];
             }
         }
         failure:^(NSError *error) {
             if (weakSelf) {
-                //TODO: inform the user that there is an error
+                // TODO: inform the user that there is an error
                 
                 // Clear the previous results
                 SearchPlaceViewController *strongSelf = weakSelf;
-                PlacesTableViewController *placesTableViewController = (PlacesTableViewController *)strongSelf.searchController.searchResultsController;
+                PlacesTableViewController *placesTableViewController = strongSelf.placesTableViewController;
                 placesTableViewController.places = @[];
                 [placesTableViewController.tableView reloadData];
             }

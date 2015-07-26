@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Yi-Wei Wu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LGViewController.h"
 
 #import "Place.h"
 
-@interface PlaceDetailsViewController : UIViewController
+@interface PlaceDetailsViewController : LGViewController
 
 @property(nonatomic, strong) Place *place;
 

@@ -6,9 +6,12 @@
 //  Copyright (c) 2015 Yi-Wei Wu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LGViewController.h"
 
-@interface SearchPlaceViewController : UIViewController
+/*!
+ * The view controller that constains a search bar for user to search places by address.
+*/
+@interface SearchPlaceViewController : LGViewController
 
 
 @end

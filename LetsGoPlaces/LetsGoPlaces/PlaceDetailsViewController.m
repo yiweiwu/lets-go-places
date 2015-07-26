@@ -26,8 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor redColor];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.title = @"Map";
     
     [self.view addSubview:self.placeDescriptionLabel];
     [self.view addSubview:self.placeImageView];
