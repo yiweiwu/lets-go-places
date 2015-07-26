@@ -17,6 +17,8 @@
 @property (nonatomic, strong) UISearchController *searchController;
 @property (nonatomic, strong) PlacesTableViewController *placesTableViewController;
 
+@property (nonatomic, strong) NSString *currentSearchTerm;
+
 @end
 
 static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
@@ -68,6 +70,11 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
     [searchBar resignFirstResponder];
 }
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    self.currentSearchTerm = nil;
+}
+
 #pragma mark - UISearchResultsUpdating
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
@@ -79,10 +86,19 @@ static NSString *const placeTableViewCellIdentifier = @"PlaceTableViewCellId";
         return;
     }
     
+    // This delegate method is called when it becomes the first responder as well.
+    // Try to avoid making duplicate requests.
+    if ([self.currentSearchTerm isEqualToString:searchTerm]) {
+        return;
+    }
+    
+    // Caching the current search term
+    self.currentSearchTerm = searchTerm;
+    
     // make Google Places API request
     __weak id weakSelf = self;
     NSOperation *operation = [[GooglePlacesRequestManager sharedRequestManager]
-        autoCompletePlacesWithInput:searchTerm
+        autoCompletePlacesWithInput:self.currentSearchTerm
         success:^(id places) {
             if (weakSelf) {
                 // Populate the results
